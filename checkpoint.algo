@@ -1,0 +1,32 @@
+ALGORITHM Checkpoint
+VAR
+    var n:STRING;
+    var i, count_vowels, count_word, sentenceLength:INTEGER = 0;
+BEGIN
+    REPEAT
+        Read(n);
+    UNTIL (n[n.length] == ".")
+
+    sentenceLength := n.length;
+
+    FOR i FROM 0 TO n.length STEP 1  DO
+        IF (n[i] == " ") THEN
+            count_word++;
+        END_IF
+    END_FOR
+    Write(count_word);
+
+    FOR i FROM 0 TO n.length STEP 1  DO
+        IF (n[i] == "a"
+        OR n[i] == "e"
+        OR n[i] == "i"
+        OR n[i] == "o"
+        OR n[i] == "u"
+        OR n[i] == "y") THEN
+            count_vowels ++;
+        END_IF
+    END_FOR
+
+    Write(count_vowels);
+
+END
