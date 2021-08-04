@@ -1,0 +1,31 @@
+PROCEDURE Insert(VAR arr : ARRAY_OF INTEGER[], x)
+VAR
+    mid : INTEGER;
+BEGIN
+    mid := arr.length/2;
+    IF (arr[mid]< x) THEN
+        FOR i FROM mid+1 TO arr.length-1 STEP 1  DO
+            IF (arr[i] >= x AND arr[i+1]=<x) THEN
+                arr[i+1] := x;
+            END_IF
+        END_FOR
+    ELSE
+        FOR i FROM mid-1 TO 0 STEP 1  DO
+            IF (arr[i] >= x AND arr[i-1]=<x) THEN
+                arr[i-1] := x;
+            END_IF
+        END_FOR
+    END_IF
+END
+
+ALGORITHM Card_Game
+VAR
+    arr : ARRAY_OF INTEGER[];
+    card : INTEGER;
+BEGIN
+    Read(card);
+    Insert(arr, card)
+    FOR i FROM 0 TO arr.length-1 STEP 1  DO
+        Write(arr)
+    END_FOR
+END
