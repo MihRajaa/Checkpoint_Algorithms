@@ -1,0 +1,32 @@
+PROCEDURE dot_product(v1, v2: ARRAY_OF INTEGER, VAR sum: INTEGER)
+VAR
+BEGIN
+IF (v1.length = v2.length) THEN
+        FOR i FROM 0 TO v1.length-1 STEP 1  DO
+        sum := sum+(v1[i]*v2[i]);
+    END_FOR
+END_IF
+END
+
+ALGORITHM Orthogonal
+VAR
+    arr : ARRAY_OF ARRAY[];
+    sum : INTEGER = 0;
+    n : INTEGER;
+BEGIN
+    REPEAT
+        Read(n)
+        FOR i FROM 0 TO n-1 STEP 1  DO
+            Read(arr[i])
+        END_FOR
+    UNTIL (n>1)
+
+    FOR i FROM 0 TO arr.length-2 STEP 1  DO
+        FOR j FROM i+1 TO arr.length-1 STEP 1  DO
+            dot_product(arr[i],arr[j],sum)
+            IF (sum = 0) THEN
+                Write("le deux vecteur est orthogonal")
+            END_IF
+        END_FOR b                                 
+    END_FOR
+END
